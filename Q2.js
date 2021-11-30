@@ -1,45 +1,16 @@
-Q2Functions = {
-    LargestOfTwoNumbers : function LargestOfTwoNumbers(a,b){
-        if(a>b) return a;
-        else return b;
-    },
+var event = require('events');
+var eventEmitter  =new event.EventEmitter();
 
-    LargestOfThreeNumbers : function LargestOfThreeNumbers(a,b,c){
-        if(a>b && a>c) return a;
-        else if (b>a && b>c) return b;
-        else return c;
-    },
-    FactorialOfNumbers : function FactorialOfNumbers(num){
-        if(typeof num==Number){
-            return "Provide Number"
-        }
-        var result = 1;
-        for (let i=1;i<=num;i++){
-            result=result*i;
-        }
-        return result;
-    },
-    CheckEvenOdd : function CheckEvenOdd(num){
-        if(num%2==0) return true;
-        else return false;
-    },
-    LargestElementInArray : function LargestElementInArray(arr){
-        var max=0;
-        arr.forEach(element => {
-            if(element>max){
-                max=element;
-            }
-        });
-        return max;
-    },
-    SearchElementInArray : function SearchElementInArray(arr,ele){
-        var bfound = false;
-        arr.forEach(element => {
-            if(element==ele){
-                bfound=true;
-            }
-        });
-        return bfound;
-    }
+var listner1 = function listner1(){
+    console.log("This is Listner1");
 }
-module.exports = Q2Functions;
+var listner2 = function listner2(){
+    console.log("This is Listner2");
+}
+
+eventEmitter.on('myevent',listner1);
+eventEmitter.on('myevent',listner2);
+
+eventEmitter.emit('myevent');
+
+console.log(eventEmitter.eventNames());

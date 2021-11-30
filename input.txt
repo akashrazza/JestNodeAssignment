@@ -1,0 +1,5 @@
+How can I count the number of times a particular string occurs in another string. For example, this is what I am trying to do in Javascript:
+raja
+raja
+raja
+raja

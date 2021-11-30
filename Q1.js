@@ -1,12 +1,14 @@
-var TestOperations = {
-    Addition : function Addition(a,b){
-        return a+b;
-    },
-    Subtraction : function Subtraction(a,b){
-        return a-b;
-    },
-    Multiplication : function Multiplication(a,b){
-        return a*b;
-    }
+var event = require('events');
+var eventEmitter  =new event.EventEmitter();
+
+var listner1 = function listner1(){
+    console.log("This is Listner1");
 }
-module.exports = TestOperations;
+var listner2 = function listner2(){
+    console.log("This is Listner2");
+}
+
+eventEmitter.on('myevent',listner1);
+eventEmitter.on('myevent',listner2);
+
+eventEmitter.emit('myevent');
