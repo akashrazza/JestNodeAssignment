@@ -1,8 +1,9 @@
 var http = require('http')
 var url = require('url')
 var fs = require('fs');
+
+//Creating Server and Sending json data at port 8081
 http.createServer((req,res)=>{
-    // res.write('test');
     var pathname = url.parse(req.url).pathname;
     console.log(pathname)
     if(pathname.substr(1)=="index.html"){
